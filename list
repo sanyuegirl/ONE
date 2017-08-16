@@ -1,0 +1,59 @@
+package com.verydu;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+
+public class A {
+
+	public static void main(String[] args) {
+		List<B> aa=new ArrayList<>();
+		B b1=new B();
+		b1.setId(3);
+		b1.setName("你好");
+		aa.add(b1);
+		
+		B b2=new B();
+		b2.setId(8);
+		b2.setName("木木");
+		aa.add(b2);
+		
+		B b3=new B();
+		b3.setId(1);
+		b3.setName("塔塔");
+		aa.add(b3);
+		Map<Integer, B> mm = new HashMap<>();
+		for (B b : aa) {
+			mm.put(b.getId(), b);
+		}
+		
+		List<String> year=new ArrayList<String>();
+		
+		Map<Integer, Integer> map = new HashMap<>();
+		for(int i=1;i<=12;i++){
+			map.put(i, i);
+		}
+		
+		//List<B> data = new ArrayList<>();
+		
+		Iterator it = map.keySet().iterator();
+		while(it.hasNext()){
+			Object key =it.next();
+			if(!mm.containsKey(key)){
+				//System.out.println(mm.get(key).getId()+"----->>>>"+mm.get(key).getName());
+				//System.out.println(map.get(key));
+				aa.add(new B(map.get(key), ""));
+			}
+		}
+		
+		for (B string : aa) {
+			System.out.println(string.getId());
+			System.out.println(string.getName());
+		}
+		
+	}
+	
+}
