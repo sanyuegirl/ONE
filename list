@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
+/**
+*测试类 
+*对两个map集合进行key的比较
+*/
 
 public class A {
 
