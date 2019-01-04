@@ -1,0 +1,24 @@
+DynaProperty property = new DynaProperty("nickname", String.class);
+		DynaProperty username = new DynaProperty("username", String.class);
+		BasicDynaClass basicDynaClass = new BasicDynaClass("user", null, new DynaProperty[]{property,username});
+		BasicDynaBean basicDynaBean = new BasicDynaBean(basicDynaClass);
+		User user = new User();
+		user.setPassword("123456");
+		try {
+			BeanUtils.copyProperties(basicDynaBean, user);
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		basicDynaBean.set("nickname", "1212");
+		basicDynaBean.set("username", "1212");
+		//basicDynaBean.set("password", "1212");
+		Map<String, Object> map = basicDynaBean.getMap();
+		Iterator<String> it = map.keySet().iterator();while (it.hasNext()) {   
+			String key = it.next();
+			System.out.println(key);
+		   // System.out.println(key + ":" + map.get(key));
+		}
